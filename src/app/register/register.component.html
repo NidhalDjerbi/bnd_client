@@ -1,0 +1,42 @@
+<div class="form-inner">
+    <form action="#" class="signup" [formGroup]="registerForm">
+            <div class="field">
+                <input type="text" placeholder="Name" required="" formControlName="name">
+            </div>
+            <div *ngIf="registerForm.controls.name.invalid && (registerForm.controls.name.dirty || registerForm.controls.name.touched)"
+                class="alert alert-danger">
+                <div *ngIf="registerForm.controls.name.errors?.required">name is required.</div>
+            </div>
+            <div class="field">
+                <input type="text" placeholder="Email Address" required="" formControlName="email">
+            </div>
+            <div *ngIf="registerForm.controls.email.invalid && (registerForm.controls.email.dirty || registerForm.controls.email.touched)"
+                class="alert alert-danger">
+                <div *ngIf="registerForm.controls.email.errors?.required">email is required.</div>
+                <div *ngIf="registerForm.controls.email.errors?.minlength">
+                    email must be at least 6 characters long.
+                </div>
+                <div *ngIf="registerForm.controls.email.errors?.email">
+                    email pattern not valid
+                </div>
+            </div>
+            <div class="field">
+                <input type="password" placeholder="Password" required="" formControlName="password">
+            </div>
+            <div *ngIf="registerForm.controls.password.invalid && (registerForm.controls.password.dirty || registerForm.controls.password.touched)"
+                class="alert alert-danger">
+                <div *ngIf="registerForm.controls.password.errors?.required">password is required.</div>
+                <div *ngIf="registerForm.controls.password.errors?.minlength">
+                    password must be at least 6 characters long.
+                </div>
+            </div>
+            <div class="field">
+                <input type="password" placeholder="Confirm password" required="" formControlName="password_confirmation">
+            </div>
+            <div class="field btn">
+                <div class="btn-layer">
+                </div>
+                <input type="submit" value="Signup" (click)= "register()">
+            </div>
+    </form>
+</div>

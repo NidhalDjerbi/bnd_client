@@ -1,0 +1,74 @@
+<table class="table table-striped">
+    <thead>
+      <tr>
+          <th scope="col">productID</th>
+          <th scope="col">name</th>
+          <th scope="col">productCode</th>
+          <th scope="col">quantity</th>
+          <th scope="col">price</th>
+          <th scope="col">brand</th>
+          <th scope="col">model</th>
+          <th scope="col">category</th>
+          <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <tr *ngFor="let product of allProduct">
+          <td>{{product.productID}}</td>
+          <td>{{product.name}}</td>
+          <td>{{product.product_code_id}}</td>
+          <td>{{product.quantity}}</td>
+          <td>{{product.price}}</td>
+          <td>{{product.brand}}</td>
+          <td>{{product.model}}</td>
+          <td>{{product.category_id}}</td>
+          <td>
+            <span (click)="update(product)">
+              <fa-icon [icon]="faEdit" ></fa-icon>
+            </span>
+            <span  (click)="delete(product)">
+              <fa-icon [icon]="faTrash"></fa-icon>
+            </span>
+          </td>
+      </tr>
+    </tbody>
+    <div class="costum-form">
+      <div class="form-inner" *ngIf="mode == 'update'">
+        <form action="#" class="signup" [formGroup]="updateForm">
+                <div class="field">
+                    <input type="text" placeholder="Name" required="" formControlName="name">
+                </div>
+                <div class="field">
+                    <input type="text" placeholder="quantity" required="" formControlName="quantity">
+                </div>
+                <div class="field">
+                    <input type="text" placeholder="brand" required="" formControlName="brand">
+                </div>
+                <div class="field">
+                    <input type="text" placeholder="price" required="" formControlName="price">
+                </div>
+                <div class="field">
+                    <input type="text" placeholder="model" required="" formControlName="model">
+                </div>
+                <div class="field">
+                    <input type="text" placeholder="category_id" required="" formControlName="category_id">
+                </div>
+                <div class="field">
+                    <input type="text" placeholder="productID" required="" formControlName="productID">
+                </div>
+                <div class="field">
+                    <input type="text" placeholder="product_code_id" required="" formControlName="product_code_id">
+                </div>
+                
+                
+                <div class="field btn">
+                    <div class="btn-layer">
+                    </div>
+                    <input type="submit" value="Update" (click)= "updateProduct()">
+                </div>
+        </form>
+      </div>
+    </div>
+    
+  </table>

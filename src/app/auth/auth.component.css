@@ -1,0 +1,7 @@
+.costum-auth{
+    display: grid;
+    height: 100%;
+    width: 100%;
+    background: -webkit-linear-gradient(left, #0c45e2, #34d0e5);
+    place-items: center;
+}
